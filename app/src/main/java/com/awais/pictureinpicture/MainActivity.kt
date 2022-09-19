@@ -87,7 +87,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        binding.playBtn.visibility = View.VISIBLE
+        binding.apply {
+            playBtn.visibility = View.VISIBLE
+            if (videoView.isPlaying) {
+                playBtn.text = "Stop Video"
+            } else {
+                playBtn.text = "Start Video"
+            }
+        }
     }
 
     override fun onPause() {
